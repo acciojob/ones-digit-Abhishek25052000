@@ -8,8 +8,11 @@
 	<body>
 		<script>
 			function onesDigit(e){
+				if(e > -1){
 				var b = e % 10;
 				return b;
+			} else{
+					return "error";
 			}
 			let a = parseInt(prompt())
            alert(onesDigit(a))			
