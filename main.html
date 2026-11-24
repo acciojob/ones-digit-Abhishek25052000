@@ -1,23 +1,39 @@
+
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-		<title>Document</title>
-	</head>
-	<body>
-		<script>
-			function onesDigit(n){
-				if(n > -1 && n <= 999999999){
-				     b = n % 10;
-					return b;
-				}else{
-					return "error";
-					}
-				}
-			let m = parseInt(prompt());
-			alert(onesDigit(m))
-			
-		</script>
-	</body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ones Digit</title>
+</head>
+<body>
+
+<script>
+    function onesDigit(n) {
+
+        // Check whether the input is a valid positive integer
+        if (
+            (typeof n !== "number" && typeof n !== "string") ||
+            !/^\d+$/.test(String(n)) ||
+            Number(n) <= 0 ||
+            Number(n) > 999999999
+        ) {
+            throw new Error("Input must be a positive integer");
+        }
+
+        // Return the ones digit
+        return Number(String(n).slice(-1));
+    }
+
+    // Get input from the user
+    let m = prompt("Enter a positive integer:");
+
+    try {
+        alert(onesDigit(m));
+    } catch (error) {
+        alert(error.message);
+    }
+</script>
+
+</body>
 </html>
